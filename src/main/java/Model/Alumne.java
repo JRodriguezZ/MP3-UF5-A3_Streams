@@ -5,18 +5,26 @@ import lombok.Data;
 
 @Data
 public class Alumne {
+
     @CsvBindByName
-    String nom;
+    String NOM;
+
     @CsvBindByName
-    String cognom;
+    String COGNOM;
+
     @CsvBindByName
-    String cognom2;
+    String SEGON_COGNOM;
+
     @CsvBindByName
-    String grup;
+    String GRUP;
+
     @CsvBindByName
-    String subGrup;
+    String SUB_GRUP;
+
     @CsvBindByName
-    int telefon;
+    int TELEFON;
+
     @CsvBindByName
-    String correu;
+    String CORREU;
+
 }
