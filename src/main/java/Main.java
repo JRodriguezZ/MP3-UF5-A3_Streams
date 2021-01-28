@@ -18,10 +18,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static int seleccio;
 
-    static URL url = null;
 
-    static BufferedReader br = null;
-    static CSVReader reader = null;
 
     public static void main(String[] args) {
 
@@ -60,18 +57,7 @@ public class Main {
     }
 
     private static void alumnesSubGrupA() {
-        try {
-            url = new URL(PATH);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            br = new BufferedReader(new InputStreamReader(url.openStream()));
-            reader = new CSVReader(br);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        CSVReader reader = getReader();
 
         CsvToBean<Alumne> alumneCsvToBean = new CsvToBeanBuilder(reader)
                 .withFilter(strings -> )
@@ -79,18 +65,7 @@ public class Main {
     }
 
     private static void visualitzar() {
-        try {
-            url = new URL(PATH);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            br = new BufferedReader(new InputStreamReader(url.openStream()));
-            reader = new CSVReader(br);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        CSVReader reader = getReader();
         CsvToBean<Alumne> alumneCsvToBean = new CsvToBeanBuilder(reader)
                 .withType(Alumne.class)
                 .withIgnoreLeadingWhiteSpace(true)
@@ -103,5 +78,25 @@ public class Main {
         }
         System.out.println();
 
+    }
+
+    private static CSVReader getReader() {
+        URL url = null;
+
+        BufferedReader br = null;
+        CSVReader reader = null;
+        try {
+            url = new URL(PATH);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            br = new BufferedReader(new InputStreamReader(url.openStream()));
+            reader = new CSVReader(br);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return reader;
     }
 }
