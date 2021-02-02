@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class DadesManager {
 
-    final String PATH = "https://srv-store5.gofile.io/download/lXHjGO/alumnespuigm05.csv";
+    final String PATH = "https://srv-store6.gofile.io/download/hZKMWI/alumnespuigm05.csv";
 
     List<Alumne> listBBDD = new ArrayList<>();
 
